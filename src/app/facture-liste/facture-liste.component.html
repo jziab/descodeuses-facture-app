@@ -1,0 +1,70 @@
+<div class="TableauFacture">
+  <h2>Table de Facture</h2>
+
+  <table>
+    <tr>
+      <th>Designation</th>
+      <th>Quantité</th>
+      <th>Prix unitaire</th>
+    </tr>
+    @for (item of tableau; track $index) {
+    <tr>
+      <td>{{ item.designation }}</td>
+      <td>{{ item.quantity }}</td>
+      <td>{{ item.prix }}</td>
+    </tr>
+    }
+
+    <tr>
+      <td colspan="2">Résultat</td>
+      <td>{{ somme }}</td>
+    </tr>
+  </table>
+  <br />
+</div>
+
+<div class="AjoutFacture">
+  <form [formGroup]="signup" (ngSubmit)="onsubmit()">
+    <h2>Ajout Facture</h2>
+    <!--Designation-->
+    <div id="designation">
+      <mat-form-field>
+        <mat-label>Designation:</mat-label>
+        <input
+          matInput
+          formControlName="designation"
+          type="text"
+          placeholder="Entrer les donée necessaire"
+        />
+      </mat-form-field>
+    </div>
+
+    <!--Quantité-->
+    <div>
+      <mat-form-field>
+        <mat-label>Quantité:</mat-label>
+        <input
+          matInput
+          formControlName="quantity"
+          type="number"
+          placeholder="Entrer la quantité"
+        />
+      </mat-form-field>
+    </div>
+
+    <!--Prix-->
+    <div>
+      <mat-form-field>
+        <mat-label>Prix:</mat-label>
+        <input
+          matInput
+          formControlName="prix"
+          type="number"
+          placeholder="Entrer le prix"
+        />
+      </mat-form-field>
+    </div>
+
+    <button mat-flat-button type="submit">Ajouter</button>
+  </form>
+</div>
